@@ -2,10 +2,10 @@ use Mix.Config
 
 # Configure your database
 config :example_upgrade, ExampleUpgrade.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "example_upgrade_dev",
-  hostname: "localhost",
+  username: System.get_env("POSTGRES_USER") || "batterydbuser",
+  password: System.get_env("POSTGRES_PASSWORD") || "not-real",
+  database: "phoenix_example",
+  hostname: System.get_env("POSTGRES_HOST") || "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
